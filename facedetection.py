@@ -24,9 +24,15 @@ faces = face_cascade.detectMultiScale(gray_img, scaleFactor = 1.1, minNeighbors 
 # minSize – Minimum possible object size. Objects smaller than that are ignored.
 # maxSize – Maximum possible object size. Objects bigger than this are ignored.
 
+# Iterate over the image and plot and plot a green colored box as given in the faces vector
+for x, y, w, h in faces:
+    img = cv2.rectangle(img, (x,y),(x + w, y + h), (0, 255, 0), 3)
 
 # Display the image using the imshow() method with two parameters: Window name, image_variable
 cv2.imshow('Image', img)
 
 # Use the below to wait for the window unless hit the exit button
 cv2.waitKey(0)
+
+# Destroy the windows on completion; as a good practice.
+cv2.destroyAllWindows
