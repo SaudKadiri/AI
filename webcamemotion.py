@@ -16,9 +16,6 @@ while True:
     #   frame stores the current video frame; None is returned if no frame is found
     ret, frame = cap.read()
 
-    # Show the frame
-    cv2.imshow('Live video cam', frame)
-
     # Required parameters for put text
     # image: The image on which the text is to be displayed. Remember each frame is an image!
     # text: String(text) that is to be written on the image.
@@ -29,6 +26,10 @@ while True:
     # thickness: It is the thickness of the line in px.
     #           Image,   Text,        Org,         Font type,      font scale,  color,    thickness
     cv2.putText(frame, "Emotion", (450, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 5)
+    
+    
+    # Show the frame
+    cv2.imshow('Live video cam', frame)
     
     # The function waitKey waits for a key event infinitely (when \texttt{delay}\leq 0 ) or for delay milliseconds, when it is positive
     c = cv2.waitKey(1)
