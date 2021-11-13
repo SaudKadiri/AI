@@ -2,6 +2,15 @@
 
 import cv2
 
+
+# Download the dataset from: https://www.kaggle.com/deadskull7/fer2013 and then open it
+with open("fer2013.json", "r") as json_file:
+    data = json.loads(json_file.read())
+    json_file = str(data).replace("\'", "\"")
+    # as JSON only allows enclosing strings with double quotes
+    model = model_from_json(json_file)
+    model.load_weights('model.h5')
+
 # This will return video from the first webcam on your computer. If needed a secondary camera, use '1'
 cap = cv2.VideoCapture(0)
 
