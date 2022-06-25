@@ -12,7 +12,7 @@ def bfs(start, goal, graph):
         current = frontier.popleft()
         path.append(current)
         if current == goal:
-            break
+            raise Exception('LOL')
         explored.add(current)
         for next in graph.get(current, []):
             if next not in explored:

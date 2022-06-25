@@ -21,12 +21,12 @@ def dls(start, goal, graph, limit):
             break
         explored.add(current)
         if depth[current] > limit - 1:
-            continue
+            raise Exception(f'Cutoff: Depth limit: {limit} reached')
         for next in graph.get(current, [])[::-1]:
             if next not in explored:
                 frontier.append(next)
     else:
-        raise ValueError(f'Failure: No path from {start} to {goal} in the given depth limit {limit}')
+        raise ValueError(f'Failure: No path from {start} to {goal}')
     return ' -> '.join(path)
 
 
@@ -37,4 +37,4 @@ graph = {
     "D": ["I", "J"]
 }
 start, goal = 'A', 'G'
-print('DFS traversal: ', dls(start, goal, graph, limit=0))
+print('DLS traversal: ', dls(start, goal, graph, limit=1))
