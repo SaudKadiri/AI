@@ -12,7 +12,7 @@ def bfs(start, goal, graph):
         current = frontier.popleft()
         path.append(current)
         if current == goal:
-            raise Exception('LOL')
+            break
         explored.add(current)
         for next in graph.get(current, []):
             if next not in explored:
@@ -20,7 +20,6 @@ def bfs(start, goal, graph):
     else:
         raise ValueError(f'Failure: No path from {start} to {goal}')
     return ' -> '.join(path)
-
 
 graph = {
     "A": ["B", "C", "D"],
