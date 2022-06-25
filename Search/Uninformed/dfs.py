@@ -14,7 +14,7 @@ def dfs(start, goal, graph):
         if current == goal:
             break
         explored.add(current)
-        for next in graph.get(current, []):
+        for next in graph.get(current, [])[::-1]:
             if next not in explored:
                 frontier.append(next)
     else:
