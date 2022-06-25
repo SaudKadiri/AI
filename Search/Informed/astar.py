@@ -34,13 +34,8 @@ def astar(start, goal, graph):
         raise ValueError(f'Failure: No path from {start} to {goal}')
 
     # reconstruct path
-    path = []
-    def traceback(curr):
-        path.append(curr)
-        if came_from[curr]:
-            traceback(came_from[curr])
-    traceback(goal)
-    return ' -> '.join(path[::-1])
+    traceback = lambda curr: traceback(came_from[curr]) + [curr] if curr else []
+    return ' -> '.join(traceback(goal))
 
 graph = {
     'S': [('1', 3), ('4', 4)],
