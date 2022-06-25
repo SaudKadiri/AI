@@ -29,12 +29,12 @@ def dls(start, goal, graph, limit):
         raise ValueError(f'Failure: No path from {start} to {goal}')
     return ' -> '.join(path)
 
-
-graph = {
-    "A": ["B", "C", "D"],
-    "B": ["E", "F"],
-    "C": ["G", "H"],
-    "D": ["I", "J"]
-}
-start, goal = 'A', 'G'
-print('DLS traversal: ', dls(start, goal, graph, limit=1))
+if __name__ == '__main__':
+    graph = {
+        "A": ["B", "C", "D"],
+        "B": ["E", "F"],
+        "C": ["G", "H"],
+        "D": ["I", "J"]
+    }
+    start, goal = 'A', 'G'
+    print('DLS traversal: ', dls(start, goal, graph, limit=1))
