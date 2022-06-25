@@ -21,7 +21,6 @@ def dls(start, goal, graph, limit):
             break
         explored.add(current)
         if depth[current] > limit - 1:
-            print(current, frontier)
             continue
         for next in graph.get(current, [])[::-1]:
             if next not in explored:
@@ -38,4 +37,4 @@ graph = {
     "D": ["I", "J"]
 }
 start, goal = 'A', 'G'
-print('DFS traversal: ', dls(start, goal, graph, limit=2))
+print('DFS traversal: ', dls(start, goal, graph, limit=0))
