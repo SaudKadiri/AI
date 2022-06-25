@@ -1,13 +1,20 @@
 #from dls 
 from dls import dls
 
-def iterative_deepening(start, goal, graph):
-    ''''''
-    for l in range(2, 100):
+def ids(start, goal, graph, l=0):
+    '''
+    Search using Iterative Deepening Search
+    '''
+    while True:
         try:
-            dls(graph, start, goal, l)
+            sol = dls(start, goal, graph, l)
         except ValueError:
-            print("LOL")
+            return
+        except:
+            l += 1
+        else:
+            return sol
+        
 
 graph = {
     "A": ["B", "C", "D"],
@@ -15,5 +22,5 @@ graph = {
     "C": ["G", "H"],
     "D": ["I", "J"]
 }
-start, goal = 'A', 'G'
-print('DFS traversal: ', iterative_deepening(graph, start, goal))
+start, goal = 'A', 'F'
+print('IDS traversal: ', ids(start, goal, graph))
